@@ -1,0 +1,63 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Unit1.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+        : TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+
+
+
+
+
+void __fastcall TForm1::FormCreate(TObject *Sender)
+{
+     t1->Lines->LoadFromFile("1.txt");
+     t2->Lines->LoadFromFile("2.txt");
+     t3->Lines->LoadFromFile("3.txt");
+     t4->Lines->LoadFromFile("4.txt");
+     t5->Lines->LoadFromFile("5.txt");
+     t6->Lines->LoadFromFile("6.txt");
+     t7->Lines->LoadFromFile("7.txt");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::FormClose(TObject *Sender, TCloseAction &Action)
+{
+             t1->Lines->SaveToFile("1.txt");
+     t2->Lines->SaveToFile("2.txt");
+     t3->Lines->SaveToFile("3.txt");
+     t4->Lines->SaveToFile("4.txt");
+     t5->Lines->SaveToFile("5.txt");
+     t6->Lines->SaveToFile("6.txt");
+     t7->Lines->SaveToFile("7.txt");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Button1Click(TObject *Sender)
+{
+          if(Application->MessageBox(
+    "Plik zapisze sie automatycznie, dziekuje za\n""korzystanie z uslugi.","Potwierdz",
+    MB_YESNO | MB_ICONQUESTION)==IDYES )
+    {
+           t1->Lines->SaveToFile("1.txt");
+     t2->Lines->SaveToFile("2.txt");
+     t3->Lines->SaveToFile("3.txt");
+     t4->Lines->SaveToFile("4.txt");
+     t5->Lines->SaveToFile("5.txt");
+     t6->Lines->SaveToFile("6.txt");
+     t7->Lines->SaveToFile("7.txt");
+        Application->Terminate();
+    }
+}
+//---------------------------------------------------------------------------
+
